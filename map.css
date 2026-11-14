@@ -21,3 +21,35 @@
     stroke: white;
     pointer-events: auto;
 }
+
+#map svg circle,
+.legend > div {
+  --color-departures: steelblue;
+  --color-arrivals: darkorange;
+  --color: color-mix(
+    in oklch,
+    var(--color-departures) calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+  );
+  fill: var(--color);
+}
+
+.legend {
+    display: flex;
+    gap: 1px;
+    margin-block: 1em;
+    width: 100%;
+}
+
+.legend > div {
+    flex: 1;
+    padding: 0.7em 1em;
+    text-align: center;
+    background: var(--color);
+    color: white;
+    font-size: 0.9em;
+}
+
+.legend > div:nth-child(3) {
+    color: black;
+}
